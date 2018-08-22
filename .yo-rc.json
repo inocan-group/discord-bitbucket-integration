@@ -1,0 +1,14 @@
+{
+  "generator-typescript-microservice": {
+    "promptValues": {
+      "appName": "discord-webhook",
+      "serverless": "serverless",
+      "features": [
+        "wallaby"
+      ],
+      "license": "MIT",
+      "coverage": [],
+      "social": []
+    }
+  }
+}
