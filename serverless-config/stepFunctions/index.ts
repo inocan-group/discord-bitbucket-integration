@@ -21,8 +21,7 @@ const steps: IStepFunction = {
   Comment: "",
   StartAt: "",
   States
-}
-
+};
 
 const stateMachines: IDictionary<IStateMachine> = {
   nameOfStateMachine: {
@@ -40,4 +39,4 @@ const stateMachines: IDictionary<IStateMachine> = {
   }
 };
 
-export default { stateMachines };
+export default {};

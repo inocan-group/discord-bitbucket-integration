@@ -1,0 +1,213 @@
+{
+  "comment": {
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/1/comments/47383227"
+      },
+      "html": {
+        "href": "https://bitbucket.org/inocan_move/move-admin/issues/1#comment-47383227"
+      }
+    },
+    "content": {
+      "raw": "issue never existed",
+      "markup": "markdown",
+      "html": "<p>issue never existed</p>",
+      "type": "rendered"
+    },
+    "created_on": "2018-08-22T05:42:00.016984+00:00",
+    "user": {
+      "username": "inocan-group",
+      "display_name": "Ken Snyder",
+      "account_id": "5b7c672fc5e21441d0929e79",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/inocan-group"
+        },
+        "html": {
+          "href": "https://bitbucket.org/inocan-group/"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/inocan-group/avatar/"
+        }
+      },
+      "type": "user",
+      "uuid": "{8d2d345d-8abd-4c5e-b8ed-e9386fdee9f6}"
+    },
+    "updated_on": null,
+    "type": "issue_comment",
+    "id": 47383227
+  },
+  "changes": {
+    "status": {
+      "new": "resolved",
+      "old": "new"
+    }
+  },
+  "issue": {
+    "content": {
+      "raw": "another test",
+      "markup": "markdown",
+      "html": "<p>another test</p>",
+      "type": "rendered"
+    },
+    "kind": "bug",
+    "repository": {
+      "full_name": "inocan_move/move-admin",
+      "type": "repository",
+      "name": "move-admin",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin"
+        },
+        "html": {
+          "href": "https://bitbucket.org/inocan_move/move-admin"
+        },
+        "avatar": {
+          "href": "https://bytebucket.org/ravatar/%7Bc816fbc6-c6aa-4b4a-ad1f-d859d5812272%7D?ts=1949617"
+        }
+      },
+      "uuid": "{c816fbc6-c6aa-4b4a-ad1f-d859d5812272}"
+    },
+    "links": {
+      "attachments": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/1/attachments"
+      },
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/1"
+      },
+      "watch": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/1/watch"
+      },
+      "comments": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/1/comments"
+      },
+      "html": {
+        "href": "https://bitbucket.org/inocan_move/move-admin/issues/1/t2"
+      },
+      "vote": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/1/vote"
+      }
+    },
+    "title": "t2",
+    "reporter": {
+      "username": "inocan-group",
+      "display_name": "Ken Snyder",
+      "account_id": "5b7c672fc5e21441d0929e79",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/inocan-group"
+        },
+        "html": {
+          "href": "https://bitbucket.org/inocan-group/"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/inocan-group/avatar/"
+        }
+      },
+      "type": "user",
+      "uuid": "{8d2d345d-8abd-4c5e-b8ed-e9386fdee9f6}"
+    },
+    "component": null,
+    "votes": 0,
+    "watches": 2,
+    "priority": "major",
+    "assignee": {
+      "username": "ksnyder",
+      "display_name": "Ken Snyder",
+      "account_id": "557058:18e12461-27f0-4f22-8f85-16f8bbeb8e47",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/ksnyder"
+        },
+        "html": {
+          "href": "https://bitbucket.org/ksnyder/"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/ksnyder/avatar/"
+        }
+      },
+      "type": "user",
+      "uuid": "{ca595eb4-fd92-4917-b337-3396ef954d8a}"
+    },
+    "state": "resolved",
+    "version": null,
+    "edited_on": null,
+    "created_on": "2018-08-22T05:36:43.044567+00:00",
+    "milestone": null,
+    "updated_on": "2018-08-22T05:41:59.995888+00:00",
+    "type": "issue",
+    "id": 1
+  },
+  "actor": {
+    "username": "inocan-group",
+    "display_name": "Ken Snyder",
+    "account_id": "5b7c672fc5e21441d0929e79",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/users/inocan-group"
+      },
+      "html": {
+        "href": "https://bitbucket.org/inocan-group/"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/account/inocan-group/avatar/"
+      }
+    },
+    "type": "user",
+    "uuid": "{8d2d345d-8abd-4c5e-b8ed-e9386fdee9f6}"
+  },
+  "repository": {
+    "scm": "git",
+    "website": "",
+    "name": "move-admin",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin"
+      },
+      "html": {
+        "href": "https://bitbucket.org/inocan_move/move-admin"
+      },
+      "avatar": {
+        "href": "https://bytebucket.org/ravatar/%7Bc816fbc6-c6aa-4b4a-ad1f-d859d5812272%7D?ts=1949617"
+      }
+    },
+    "project": {
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/inocan_move/projects/MOVE"
+        },
+        "html": {
+          "href": "https://bitbucket.org/account/user/inocan_move/projects/MOVE"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/inocan_move/projects/MOVE/avatar/32"
+        }
+      },
+      "type": "project",
+      "uuid": "{88996042-51a8-4074-9724-2239efb1a3ab}",
+      "key": "MOVE",
+      "name": "Move"
+    },
+    "full_name": "inocan_move/move-admin",
+    "owner": {
+      "username": "inocan_move",
+      "type": "team",
+      "display_name": "inocan_move",
+      "uuid": "{6f5273cb-c929-47d8-a5a5-6b65066b5f67}",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/inocan_move"
+        },
+        "html": {
+          "href": "https://bitbucket.org/inocan_move/"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/inocan_move/avatar/"
+        }
+      }
+    },
+    "type": "repository",
+    "is_private": true,
+    "uuid": "{c816fbc6-c6aa-4b4a-ad1f-d859d5812272}"
+  }
+}

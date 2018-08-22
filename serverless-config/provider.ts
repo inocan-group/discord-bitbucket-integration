@@ -1,8 +1,8 @@
 // tslint:disable:no-invalid-template-strings
 import { IServerlessProvider, IServerlessIAMRole } from "common-types";
 
-const ACCOUNT_ID = "xxxxxxxxxx";
-const REGION = "us-east-1";
+const ACCOUNT_ID = "7419-7656-9717";
+const REGION = "us-west-1";
 
 const iamRoleStatements: IServerlessIAMRole[] = [
   {
@@ -33,9 +33,9 @@ const iamRoleStatements: IServerlessIAMRole[] = [
 const provider: IServerlessProvider = {
   name: "aws",
   runtime: "nodejs8.10",
-  profile: "vuejs",
+  profile: "move",
   stage: "prod",
-  region: "us-east-1",
+  region: REGION,
   environment: "${file(serverless-config/env.yml):${self:custom.stage}}",
   iamRoleStatements
 };

@@ -1,5 +1,45 @@
 service: discord-webhook
 custom:
-  stage: "${opt:stage, self:provider.stage}"
-  region: "${opt:region, self:provider.region}"
-
+  stage: '${opt:stage, self:provider.stage}'
+  region: '${opt:region, self:provider.region}'
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-step-functions
+functions:
+  listen:
+    description: listens for BitBucket events
+    handler: lib/listen.handler
+    timeout: 2
+    memorySize: 512
+    events:
+      - http:
+          method: post
+          path: /bitbucket
+          cors: true
+stepFunctions: {}
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: move
+  stage: prod
+  region: us-west-1
+  environment: '${file(serverless-config/env.yml):${self:custom.stage}}'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - 'xray:PutTraceSegments'
+        - 'xray:PutTelemetryRecords'
+      Resource:
+        - '*'
+    - Effect: Allow
+      Action:
+        - 'states:ListStateMachines'
+        - 'states:CreateActivity'
+        - 'states:StartExecution'
+        - 'states:ListExecutions'
+        - 'states:DescribeExecution'
+        - 'states:DescribeStateMachineForExecution'
+        - 'states:GetExecutionHistory'
+      Resource:
+        - 'arn:aws:states:us-west-1:7419-7656-9717:stateMachine:*'
+        - 'arn:aws:states:us-west-1:7419-7656-9717:execution:*:*'
