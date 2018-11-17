@@ -3,7 +3,7 @@ import { IServerlessFunction, IDictionary } from "common-types";
 
 const listen: IServerlessFunction = {
   description: "listens for BitBucket events",
-  handler: "lib/listen.handler",
+  handler: "lib/handlers/listen.handler",
   timeout: 2,
   memorySize: 512,
   events: [

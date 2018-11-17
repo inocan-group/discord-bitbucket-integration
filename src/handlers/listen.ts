@@ -9,6 +9,7 @@ import {
 } from "common-types";
 import axios from "axios";
 import * as path from "path";
+import { createMessage } from "../shared/messages";
 
 export async function handler(
   event: IAWSLambdaProxyIntegrationRequest,
@@ -16,7 +17,7 @@ export async function handler(
   callback: LambdaCallback
 ) {
   console.log("EVENT\n", JSON.stringify(event, null, 2));
-  const payload = getBodyFromPossibleLambdaProxyRequest(event);
+  const payload = getBodyFromPossibleLambdaProxyRequest<IDictionary>(event);
   const changeEvent = (event.headers as IDictionary)["X-Event-Key"];
   const correlationId = (event.headers as IDictionary)["X-Request-UUID"];
   console.log(`changeEvent: ${changeEvent}; correlationId: ${correlationId}`);
@@ -30,6 +31,10 @@ export async function handler(
   );
   console.log("URL", discordWebhookUrl);
 
+  const { repository, actor } = payload;
+
+  const sendMessage = createMessage(repository.full_name, actor.username);
+
   try {
     await axios({
       method: "post",
@@ -40,7 +45,7 @@ export async function handler(
         "User-Agent": "DiscordBot"
       },
       data: {
-        content: "hello from listen bot"
+        content: sendMessage(changeEvent)
       }
     });
   } catch (e) {
