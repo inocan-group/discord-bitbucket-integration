@@ -31,6 +31,9 @@ export async function handler(
 
   const sendMessage = createMessage(repository, actor);
 
+  console.log("Repository\n", repository);
+  console.log("Owner\n", actor);
+
   const discordInfo = (await getParameter(repository.name)).Value;
   const { id, token } = JSON.parse(discordInfo);
   const discordPath = `${id}/${token}`;
