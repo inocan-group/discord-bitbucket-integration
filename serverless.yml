@@ -33,6 +33,12 @@ provider:
         - '*'
     - Effect: Allow
       Action:
+        - 'ssm:GetParameter'
+        - 'ssm:GetParametersByPath'
+      Resource:
+        - 'arn:aws:ssm:us-west-1*'
+    - Effect: Allow
+      Action:
         - 'states:ListStateMachines'
         - 'states:CreateActivity'
         - 'states:StartExecution'

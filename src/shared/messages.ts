@@ -1,13 +1,15 @@
 import { IDictionary } from "common-types";
+import { IBitbucketRepository, IBitbucketOwner } from "./types";
 
-export function createMessage(repo_name: string, user: string) {
+export function createMessage(repository: IBitbucketRepository, user: IBitbucketOwner) {
     const messages: IDictionary = {
-        'repo:push': `${user} has pushed changes to ${repo_name}`,
-        'pullrequest:created': `${user} has created an Pull Request on ${repo_name}`,
-        'pullrequest:updated': `${user} has updated an Pull Request on ${repo_name}`,
-        'pullrequest:rejected': `${user} has rejected an Pull Request on ${repo_name}`,
-        'pullrequest:comment_created': `${user} has commentted on a Pull Request in ${repo_name}`,
-        'pullrequest:comment_updated': `${user} has updated a comment on a Pull Request in ${repo_name}`,
+        'repo:push': `${user.username} has pushed changes to ${repository.full_name}`,
+        'pullrequest:created': `${user.username} has created an Pull Request on ${repository.full_name}`,
+        'pullrequest:updated': `${user.username} has updated an Pull Request on ${repository.full_name}`,
+        'pullrequest:rejected': `${user.username} has rejected an Pull Request on ${repository.full_name}`,
+        'pullrequest:comment_created': `${user.username} has commentted on a Pull Request in ${repository.full_name}`,
+        'pullrequest:comment_updated': `${user.username} has updated a comment on a Pull Request in ${repository.full_name}`,
+        'issue:created': `${user.username} has created an issue in ${repository.full_name}`,
     };
 
     return (evKey: string) => {

@@ -10,6 +10,8 @@ import {
 import axios from "axios";
 import * as path from "path";
 import { createMessage } from "../shared/messages";
+import { IBitbucketRepository, IBitbucketOwner } from "../shared/types";
+import { getParameter } from "../shared/secrets";
 
 export async function handler(
   event: IAWSLambdaProxyIntegrationRequest,
@@ -23,22 +25,26 @@ export async function handler(
   console.log(`changeEvent: ${changeEvent}; correlationId: ${correlationId}`);
   console.log("payload\n", JSON.stringify(payload, null, 2));
   console.log("context\n", JSON.stringify(context, null, 2));
-  process.env.repo =
-    "481570289558355969/KKKrc3eUn5mIGvUDVz4_UKqx5tQOHhMAroReVBLXGsDtPD-PmefsNkoX6sm92nJASWa0";
+
+  const repository: IBitbucketRepository = payload.repository;
+  const actor: IBitbucketOwner = payload.actor;
+
+  const sendMessage = createMessage(repository, actor);
+
+  const discordInfo = (await getParameter(repository.name)).Value;
+  const { id, token } = JSON.parse(discordInfo);
+  const discordPath = `${id}/${token}`;
+
   const discordWebhookUrl = path.join(
     `https://discordapp.com/api/webhooks/`,
-    process.env.repo
+    discordPath
   );
   console.log("URL", discordWebhookUrl);
-
-  const { repository, actor } = payload;
-
-  const sendMessage = createMessage(repository.full_name, actor.username);
 
   try {
     await axios({
       method: "post",
-      url: process.env.repo,
+      url: discordPath,
       baseURL: `https://discordapp.com/api/webhooks/`,
       headers: {
         "Content-Type": "application/json",
