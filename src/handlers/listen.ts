@@ -1,9 +1,8 @@
 import {
-  IAWSGatewayResponse,
   LambdaCallback,
   IAWSLambdaProxyIntegrationRequest,
   getBodyFromPossibleLambdaProxyRequest,
-  AWSGatewayStatusCode,
+  APIGatewayStatusCode,
   IAWSLambaContext,
   IDictionary
 } from "common-types";
@@ -64,7 +63,7 @@ export async function handler(
   }
 
   callback(null, {
-    statusCode: AWSGatewayStatusCode.Success,
+    statusCode: APIGatewayStatusCode.Success,
     body: {
       foo: "bar"
     }
