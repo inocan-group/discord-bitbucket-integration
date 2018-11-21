@@ -20,7 +20,6 @@ stepFunctions: {}
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: move
   stage: prod
   region: us-west-1
   environment: '${file(serverless-config/env.yml):${self:custom.stage}}'

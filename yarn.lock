@@ -870,9 +870,10 @@ commander@~2.8.1:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
-common-types@^1.8.11:
-  version "1.8.11"
-  resolved "https://registry.yarnpkg.com/common-types/-/common-types-1.8.11.tgz#880ff2357a74d03cbdd771c2bc75d032b4638878"
+common-types@^1.8.18:
+  version "1.8.18"
+  resolved "https://registry.yarnpkg.com/common-types/-/common-types-1.8.18.tgz#ad4f085fc70648e4250292cce32470423b8b9707"
+  integrity sha512-wA4tCfulIL75nogYpIaCxvxHUR8HfzsPDz4OLhgN8OZLx6grurOoHu5/ZxHQPUMZkeSpegJ6ZHkR15wvspDilA==
 
 commondir@^1.0.1:
   version "1.0.1"

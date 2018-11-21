@@ -12,4 +12,4 @@ pipelines:
           deployment: production
           script:
             - npm install --no-package-lock
-            - npm run deploy
+            - npm run deploy-production
