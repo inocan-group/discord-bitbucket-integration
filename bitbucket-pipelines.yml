@@ -1,0 +1,15 @@
+image: node:8.10
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - npm install --no-package-lock
+  branches:
+    master:
+      - step:
+        deployment: production
+        script:
+          - npm install --no-package-lock
+          - npm run deploy
