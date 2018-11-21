@@ -9,7 +9,7 @@ pipelines:
   branches:
     master:
       - step:
-        deployment: production
-        script:
-          - npm install --no-package-lock
-          - npm run deploy
+          deployment: production
+          script:
+            - npm install --no-package-lock
+            - npm run deploy
