@@ -57,10 +57,8 @@ async function build(fns?: string[]) {
 }
 
 async function deploy(stage: string, profile?: string, fns: string[] = []) {
-  const msg = fns.length !== 0 ? `` : ``;
   const awsProfile = profile ? `--aws-profile ${profile}` : ``;
 
-  console.log(`Deploy profile ${profile} ${awsProfile}`);
   try {
     if (fns.length === 0) {
       console.log(
@@ -110,19 +108,14 @@ async function deploy(stage: string, profile?: string, fns: string[] = []) {
   }
 }
 
-function getFunctionIfScoped(): string | undefined {
-  return undefined;
-}
-
 // MAIN
 
 (async () => {
   const { params, options } = parseArgv()("--help", "--profile", "--prod");
   const sls = await serverlessConfig();
-  
   const profile = options.profile ? options.profile : null;
   const stage = options.prod ? "prod" : sls.provider.stage || "dev";
-  console.log(`First profile ${profile}`);
+
   if (!options.skip) {
     try {
       await build(params);

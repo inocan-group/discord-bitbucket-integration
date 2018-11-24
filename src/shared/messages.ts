@@ -14,7 +14,7 @@ export function createMessage(repository: IBitbucketRepository, user: IBitbucket
         'issue:comment_created': `${user.username} has left a comment on a Issue in ${repository.full_name}`,
     };
 
-    return (evKey: string) => {
+    return (evKey: string) :string => {
         return messages[evKey] !== undefined
             ? messages[evKey]
             : `No message found for the following event key: ${evKey}`;
