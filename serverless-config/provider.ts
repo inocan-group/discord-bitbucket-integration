@@ -1,7 +1,7 @@
 // tslint:disable:no-invalid-template-strings
 import { IServerlessProvider, IServerlessIAMRole } from "common-types";
 
-const ACCOUNT_ID = "7419-7656-9717";
+const ACCOUNT_ID = "xxxx-xxxx-xxxx";
 const REGION = "us-west-1";
 
 const ssmParameters: IServerlessIAMRole = {
