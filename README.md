@@ -6,11 +6,14 @@ Connects webhook events emitted from **BitBucket** and sends them to **Discord**
 
 ## Getting started
 
-### Requirements
+### Prerequisites
 
-NodeJS
-Typescript
-AWS Account
+You will need the following things properly setup on your computer.
+
+- Git
+- Node.js (with npm)
+- Typescript
+- AWS Account
 
 ### Installation
 
