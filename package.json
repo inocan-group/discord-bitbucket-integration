@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "discord-webhook",
   "license": "MIT",
-  "repository": "https://your-server.com/inocan_move/discord-webhook",
+  "repository": "https://github.com/inocan-group/discord-bitbucket-integration",
   "author": "Ken Snyder <ken@ken.net>",
   "keywords": [
     "serverless",
@@ -26,8 +26,7 @@
     "remove-secret": "./node_modules/.bin/ts-node ./scripts/remove-secret.ts",
     "test": "./node_modules/.bin/ts-node ./scripts/test.ts ",
     "invoke": "./node_modules/.bin/ts-node ./scripts/invoke.ts ",
-    "deploy": "./node_modules/.bin/ts-node ./scripts/deploy.ts --profile move",
-    "deploy-production": "./node_modules/.bin/ts-node ./scripts/deploy.ts ",
+    "deploy": "./node_modules/.bin/ts-node ./scripts/deploy.ts",
     "publish": "./node_modules/.bin/ts-node ./scripts/publish.ts ",
     "package": "./node_modules/.bin/ts-node ./scripts/package.ts ",
     "coverage": "nyc --reporter=html _mocha --require ts-node/register 'test/**/*-spec.ts' && open coverage/index.html",
