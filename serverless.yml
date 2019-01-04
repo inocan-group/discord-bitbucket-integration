@@ -46,5 +46,5 @@ provider:
         - 'states:DescribeStateMachineForExecution'
         - 'states:GetExecutionHistory'
       Resource:
-        - 'arn:aws:states:us-west-1:7419-7656-9717:stateMachine:*'
-        - 'arn:aws:states:us-west-1:7419-7656-9717:execution:*:*'
+        - 'arn:aws:states:us-west-1:xxxx-xxxx-xxxx:stateMachine:*'
+        - 'arn:aws:states:us-west-1:xxxx-xxxx-xxxx:execution:*:*'
