@@ -37,7 +37,7 @@ npm install
 
 Edit `serverless-config/provider.ts` and enter your `ACCOUNT_ID` by replacing the placeholder text `xxxx-xxxx-xxxx`.
 
-Configuration is done with environment variables:
+Configuration is done with SSM variables:
 
 `[REPO]` - you look-up an incoming repo by it's fully qualified name and the value points to the Discord ID and token
 
