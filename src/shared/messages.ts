@@ -1,15 +1,15 @@
 import { IDictionary } from "common-types";
-import { BitbucketType, IBitbucketPushChanges, IBitbucketComment } from "./types";
+import { BitbucketType, IBitbucketPushChanges, IBitbucketComment, IBitbucketIssue } from "./types";
 
 interface IMessageEmbeds {
   title?: string;
-  description: string;
+  description?: string;
   url: string;
 }
 
 interface IMessageFormat {
   content: string;
-  embeds?: IMessageEmbeds[]
+  embeds?: IMessageEmbeds[] | {}
 }
 
 export function createMessage(payload: BitbucketType) {
@@ -42,22 +42,25 @@ export function createMessage(payload: BitbucketType) {
       );
     case "issue:created":
       return formatMessage(
-        `${payload.actor.username} has created an issue in ${payload.repository.full_name}`
+        `${payload.actor.username} has created an issue in ${payload.repository.full_name}`,
+        createIssueEmbed(payload.issue)
       );
     case "issue:updated":
       return formatMessage(
-        `${payload.actor.username} has updated an issue in ${payload.repository.full_name}`
+        `${payload.actor.username} has updated an issue in ${payload.repository.full_name}`,
+        createIssueEmbed(payload.issue)
       );
     case "issue:comment_created":
       return formatMessage(
-        `${payload.actor.username} has left a comment on a Issue in ${payload.repository.full_name}`
+        `${payload.actor.username} has left a comment on a Issue in ${payload.repository.full_name}`,
+        createCommentEmbed(payload.comment)
       );
     default:
       return formatMessage(`No message found`);
   }
 };
 
-const formatMessage = (message: string, embed?: IMessageEmbeds): IMessageFormat => ({
+const formatMessage = (message: string, embed: IMessageEmbeds | {} = {}): IMessageFormat => ({
   content: message,
   embeds: [embed],
 });
@@ -69,6 +72,12 @@ const createRepoPushEmbed = (payload: IBitbucketPushChanges): IMessageEmbeds => 
 });
 
 const createCommentEmbed = (payload: IBitbucketComment): IMessageEmbeds => ({
-  description: payload.content.html,
+  title: payload.content.raw,
+  url: payload.links.html.href
+});
+
+const createIssueEmbed = (payload: IBitbucketIssue): IMessageEmbeds => ({
+  title: payload.title,
+  description: payload.content.raw,
   url: payload.links.html.href
 });

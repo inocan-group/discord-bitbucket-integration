@@ -52,9 +52,7 @@ export async function handler(
         "Content-Type": "application/json",
         "User-Agent": "DiscordBot"
       },
-      data: {
-        content: createMessage(payload)
-      }
+      data: createMessage(payload)
     });
   } catch (e) {
     console.error(e);
