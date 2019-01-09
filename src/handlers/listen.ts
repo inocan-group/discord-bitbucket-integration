@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 import * as path from "path";
 import { createMessage } from "../shared/messages";
-import { IBitbucketRepository, IBitbucketOwner, BitbucketType } from "../shared/types";
+import { BitbucketType } from "../shared/types";
 import { getParameter } from "../shared/secrets";
 
 export async function handler(
@@ -25,15 +25,11 @@ export async function handler(
   console.log("payload\n", JSON.stringify(requestBody, null, 2));
   console.log("context\n", JSON.stringify(context, null, 2));
 
-  const repository: IBitbucketRepository = requestBody.repository;
-  const actor: IBitbucketOwner = requestBody.actor;
-
   const payload = { ...requestBody, ...{ kind: changeEvent } } as BitbucketType;
 
-  console.log("Repository\n", repository);
-  console.log("Owner\n", actor);
+  console.log("Payload\n", payload);
 
-  const discordInfo = (await getParameter(repository.name)).Value;
+  const discordInfo = (await getParameter(requestBody.repository.name)).Value;
   const { id, token } = JSON.parse(discordInfo);
   const discordPath = `${id}/${token}`;
   // TODO change discordWebhookUrl to accept entire url

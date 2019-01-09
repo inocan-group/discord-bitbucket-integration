@@ -1,4 +1,4 @@
-# discord-webhook
+# discord-bitbucket-integration
 
 ![license](http://img.shields.io/badge/license-MIT-brightgreen.svg)
 
@@ -39,8 +39,6 @@ Edit `serverless-config/provider.ts` and enter your `ACCOUNT_ID` by replacing th
 
 Configuration is done with SSM variables:
 
-`[REPO]` - you look-up an incoming repo by it's fully qualified name and the value points to the Discord ID and token
-
 To ensure this repo doesn't contain any explicit reference to the ENV variables you must use SSM properties which you can set with `set-secret`.
 
 You can do this by using the command below, but make sure you are referencing the correct AWS profile before doing this.
@@ -48,6 +46,8 @@ You can do this by using the command below, but make sure you are referencing th
 ```bash
 npm run set-secret [key] [value] --profile [profileName]
 ```
+
+In this case the `[key]` will be the repository short name for instance `discord-bitbucket-integration` and `[value]` will be the webhook url you get from Discord.
 
 ### Deployment
 

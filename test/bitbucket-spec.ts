@@ -30,6 +30,17 @@ describe("Bitbucket", () => {
     expect(message.content).to.equal("inocan-group has created an issue in inocan_move/move-admin");
   });
 
+  it("createMessage should return a message for issue:comment_created", async () => {
+    const data = await loadData('issue-comment.json');
+    const parsedPayload = JSON.parse(data);
+    const payload: IBitbucketRepositoryIssueCreated = {
+      kind: "issue:comment_created",
+      ...parsedPayload
+    };
+    const message = createMessage(payload);
+    expect(message.embeds[0].title).to.equal("another test");
+  });
+
   it("createMessage should return no message found", async () => {
     const data = await loadData('repo-push.json');
     const parsedPayload = JSON.parse(data);
