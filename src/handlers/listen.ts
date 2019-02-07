@@ -7,7 +7,6 @@ import {
   IDictionary
 } from "common-types";
 import axios from "axios";
-import * as path from "path";
 import { createMessage } from "../shared/messages";
 import { BitbucketType } from "../shared/types";
 import { getParameter } from "../shared/secrets";
@@ -29,21 +28,13 @@ export async function handler(
 
   console.log("Payload\n", payload);
 
-  const discordInfo = (await getParameter(requestBody.repository.name)).Value;
-  const { id, token } = JSON.parse(discordInfo);
-  const discordPath = `${id}/${token}`;
-  // TODO change discordWebhookUrl to accept entire url
-  const discordWebhookUrl = path.join(
-    `https://discordapp.com/api/webhooks/`,
-    discordPath
-  );
+  const discordWebhookUrl = (await getParameter(requestBody.repository.name)).Value;
   console.log("URL", discordWebhookUrl);
 
   try {
     await axios({
       method: "post",
-      url: discordPath,
-      baseURL: `https://discordapp.com/api/webhooks/`,
+      url: discordWebhookUrl,
       headers: {
         "Content-Type": "application/json",
         "User-Agent": "DiscordBot"
