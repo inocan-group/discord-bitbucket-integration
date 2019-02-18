@@ -44,7 +44,7 @@ To ensure this repo doesn't contain any explicit reference to the ENV variables 
 You can do this by using the command below, but make sure you are referencing the correct AWS profile before doing this.
 
 ```bash
-npm run set-secret [key] [value] --profile [profileName]
+npm run set-secret [key] [value] -- --profile [profileName]
 ```
 
 In this case the `[key]` will be the repository short name for instance `discord-bitbucket-integration` and `[value]` will be the webhook url you get from Discord.
@@ -54,5 +54,5 @@ In this case the `[key]` will be the repository short name for instance `discord
 Once you have completed all of your configuration setup, you can now deploy the project to AWS Lambda.
 
 ```bash
-npm run deploy --profile [profileName]
+npm run deploy -- --profile [profileName]
 ```

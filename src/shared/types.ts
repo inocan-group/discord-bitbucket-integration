@@ -1,4 +1,4 @@
-import { url, IDictionary } from "common-types";
+import { url } from "common-types";
 
 interface ILinks {
   commits?: {
@@ -153,11 +153,18 @@ type PullRequestState = 'OPEN' | 'MERGED' | 'DECLINED';
 type IssueType = 'bug' | 'enhancement' | 'proposal' | 'task';
 export type BitbucketKind =
   "repo:push"
+  | "repo:updated"
   | "repo:commit_comment_created"
+  | "repo:transfer"
   | "pullrequest:created"
   | "pullrequest:updated"
+  | "pullrequest:approved"
+  | "pullrequest:unapproved"
+  | "pullrequest:fulfilled"
   | "pullrequest:rejected"
+  | "pullrequest:comment_created"
   | "pullrequest:comment_updated"
+  | "pullrequest:comment_deleted"
   | "issue:created"
   | "issue:updated"
   | "issue:comment_created";
@@ -167,12 +174,19 @@ export interface IBitbucketRepositoryBase {
 }
 
 export type BitbucketType =
-  IBitbucketRepositoryPushPayload
-  | IBitbucketRepositoryCommitCommentCreatedPayload
+  IBitbucketRepositoryPushPay
+  | IBitbucketRepositoryUpdated
+  | IBitbucketRepositoryTransfer
+  | IBitbucketRepositoryCommitCommentCreated
   | IBitbucketRepositoryPullRequestCreated
   | IBitbucketRepositoryPullRequestUpdated
+  | IBitbucketRepositoryPullRequestApproved
+  | IBitbucketRepositoryPullRequestUnapproved
+  | IBitbucketRepositoryPullRequestMerged
   | IBitbucketRepositoryPullRequestRejected
+  | IBitbucketRepositoryPullRequestCommentCreated
   | IBitbucketRepositoryPullRequestCommentUpdated
+  | IBitbucketRepositoryPullRequestCommentDeleted
   | IBitbucketRepositoryIssueCreated
   | IBitbucketRepositoryIssueUpdated
   | IBitbucketRepositoryIssueCommentCreated;
@@ -181,6 +195,18 @@ interface IBitbucketContent {
   raw: string;
   html: string;
   markup: string;
+}
+
+export interface IBitbucketRepoChanges {
+  name: IBitbucketOldNew;
+  website: IBitbucketOldNew;
+  language: IBitbucketOldNew;
+  links: {
+    new: ILinks,
+    old: ILinks;
+  };
+  description: IBitbucketOldNew;
+  full_name: IBitbucketOldNew;
 }
 
 export interface IBitbucketIssue {
@@ -208,7 +234,7 @@ export interface IBitbucketComment {
   links: ILinks;
 }
 
-export interface IBitbucketRepositoryPushPayload extends IBitbucketRepositoryBase {
+export interface IBitbucketRepositoryPushPay extends IBitbucketRepositoryBase {
   kind: "repo:push";
   actor: IBitbucketOwner;
   repository: IBitbucketRepository;
@@ -217,7 +243,26 @@ export interface IBitbucketRepositoryPushPayload extends IBitbucketRepositoryBas
   }
 }
 
-export interface IBitbucketRepositoryCommitCommentCreatedPayload extends IBitbucketRepositoryBase {
+interface IBitbucketOldNew {
+  new: string;
+  old: string;
+}
+
+export interface IBitbucketRepositoryUpdated extends IBitbucketRepositoryBase {
+  kind: "repo:updated";
+  actor: IBitbucketOwner;
+  repository: IBitbucketRepository;
+  changes: IBitbucketRepoChanges
+}
+
+export interface IBitbucketRepositoryTransfer extends IBitbucketRepositoryBase {
+  kind: "repo:transfer";
+  actor: IBitbucketOwner;
+  repository: IBitbucketRepository;
+  previous_owner: IBitbucketOwner
+}
+
+export interface IBitbucketRepositoryCommitCommentCreated extends IBitbucketRepositoryBase {
   kind: "repo:commit_comment_created";
   actor: IBitbucketOwner;
   comment: IBitbucketComment;
@@ -241,6 +286,35 @@ export interface IBitbucketRepositoryPullRequestUpdated extends IBitbucketReposi
   repository: IBitbucketRepository;
 }
 
+export interface IBitbucketRepositoryPullRequestApproved extends IBitbucketRepositoryBase {
+  kind: "pullrequest:approved";
+  actor: IBitbucketOwner;
+  pullrequest: IBitbucketPullRequest;
+  repository: IBitbucketRepository;
+  approval: {
+    date: string;
+    user: IBitbucketOwner
+  }
+}
+
+export interface IBitbucketRepositoryPullRequestUnapproved extends IBitbucketRepositoryBase {
+  kind: "pullrequest:unapproved";
+  actor: IBitbucketOwner;
+  pullrequest: IBitbucketPullRequest;
+  repository: IBitbucketRepository;
+  approval: {
+    date: string;
+    user: IBitbucketOwner
+  }
+}
+
+export interface IBitbucketRepositoryPullRequestMerged extends IBitbucketRepositoryBase {
+  kind: "pullrequest:fulfilled";
+  actor: IBitbucketOwner;
+  pullrequest: IBitbucketPullRequest;
+  repository: IBitbucketRepository;
+}
+
 export interface IBitbucketRepositoryPullRequestRejected extends IBitbucketRepositoryBase {
   kind: "pullrequest:rejected";
   actor: IBitbucketOwner;
@@ -248,8 +322,24 @@ export interface IBitbucketRepositoryPullRequestRejected extends IBitbucketRepos
   repository: IBitbucketRepository;
 }
 
+export interface IBitbucketRepositoryPullRequestCommentCreated extends IBitbucketRepositoryBase {
+  kind: "pullrequest:comment_created";
+  actor: IBitbucketOwner;
+  pullrequest: IBitbucketPullRequest;
+  repository: IBitbucketRepository;
+  comment: IBitbucketComment;
+}
+
 export interface IBitbucketRepositoryPullRequestCommentUpdated extends IBitbucketRepositoryBase {
   kind: "pullrequest:comment_updated";
+  actor: IBitbucketOwner;
+  pullrequest: IBitbucketPullRequest;
+  repository: IBitbucketRepository;
+  comment: IBitbucketComment;
+}
+
+export interface IBitbucketRepositoryPullRequestCommentDeleted extends IBitbucketRepositoryBase {
+  kind: "pullrequest:comment_deleted";
   actor: IBitbucketOwner;
   pullrequest: IBitbucketPullRequest;
   repository: IBitbucketRepository;

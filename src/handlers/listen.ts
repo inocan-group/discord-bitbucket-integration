@@ -31,6 +31,9 @@ export async function handler(
   const discordWebhookUrl = (await getParameter(requestBody.repository.name)).Value;
   console.log("URL", discordWebhookUrl);
 
+  const message = createMessage(payload);
+  console.log("Discord Payload\n", message);
+
   try {
     await axios({
       method: "post",
@@ -39,7 +42,7 @@ export async function handler(
         "Content-Type": "application/json",
         "User-Agent": "DiscordBot"
       },
-      data: createMessage(payload)
+      data: message
     });
   } catch (e) {
     console.error(e);
