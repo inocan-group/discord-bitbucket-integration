@@ -1,38 +1,39 @@
 import {
-  LambdaCallback,
+  IAwsLambdaCallback,
   IAWSLambdaProxyIntegrationRequest,
   getBodyFromPossibleLambdaProxyRequest,
-  APIGatewayStatusCode,
+  ApiGatewayStatusCode,
   IAWSLambaContext,
   IDictionary
 } from "common-types";
 import axios from "axios";
+import { logger } from "aws-log";
 import { createMessage } from "../shared/messages";
 import { BitbucketType } from "../shared/types";
 import { getParameter } from "../shared/secrets";
 
+interface ISuccessResponse { 
+  statusCode: string | number,
+  body?: IDictionary
+}
+
 export async function handler(
   event: IAWSLambdaProxyIntegrationRequest,
   context: IAWSLambaContext,
-  callback: LambdaCallback
+  callback: IAwsLambdaCallback<ISuccessResponse>
 ) {
-  console.log("EVENT\n", JSON.stringify(event, null, 2));
+  const log = logger().lambda(event, context);
   const requestBody = getBodyFromPossibleLambdaProxyRequest<IDictionary>(event);
   const changeEvent = (event.headers as IDictionary)["X-Event-Key"];
-  const correlationId = (event.headers as IDictionary)["X-Request-UUID"];
-  console.log(`changeEvent: ${changeEvent}; correlationId: ${correlationId}`);
-  console.log("payload\n", JSON.stringify(requestBody, null, 2));
-  console.log("context\n", JSON.stringify(context, null, 2));
 
   const payload = { ...requestBody, ...{ kind: changeEvent } } as BitbucketType;
-
-  console.log("Payload\n", payload);
+  log.info("Payload", payload);
 
   const discordWebhookUrl = (await getParameter(requestBody.repository.name)).Value;
-  console.log("URL", discordWebhookUrl);
+  log.info("Discord webhook url", { discordWebhookUrl });
 
   const message = createMessage(payload);
-  console.log("Discord Payload\n", message);
+  log.info("Payload being sent to Discord", message);
 
   try {
     await axios({
@@ -44,16 +45,20 @@ export async function handler(
       },
       data: message
     });
+
+    callback(null, {
+      statusCode: ApiGatewayStatusCode.Success,
+      body: {
+        foo: "bar"
+      }
+    });
   } catch (e) {
-    console.error(e);
-    callback(e, { statusCode: e.statusCode });
+    log.error("There was an issue sending the message to Discord: ", {
+      e,
+      discordWebhookUrl,
+      message
+    });
+    callback(e);
     process.exit();
   }
-
-  callback(null, {
-    statusCode: APIGatewayStatusCode.Success,
-    body: {
-      foo: "bar"
-    }
-  });
 }

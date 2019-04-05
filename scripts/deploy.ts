@@ -2,8 +2,8 @@
 import chalk from "chalk";
 import { asyncExec, exit } from "async-shelljs";
 import { IServerlessConfig } from "common-types";
-import * as yaml from "js-yaml";
-import * as fs from "fs";
+import yaml from "js-yaml";
+import fs from "fs";
 import { parseArgv } from "./lib/util";
 
 let _serverlessConfig: IServerlessConfig = null;

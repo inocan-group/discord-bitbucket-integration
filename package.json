@@ -49,35 +49,41 @@
     "@types/mocha": "^5.2.5",
     "@types/node": "^8.10.0",
     "@types/rimraf": "^2.0.2",
+    "@types/webpack": "^4.4.27",
+    "@types/webpack-node-externals": "^1.6.3",
     "async-shelljs": "^0.1.2",
     "chai": "^4.1.2",
     "chance": "^1.0.16",
     "coveralls": "^3.0.2",
     "faker": "^4.1.0",
-    "handlebars": "^4.0.11",
+    "handlebars": "^4.1.1",
     "inquirer": "^6.1.0",
-    "js-yaml": "^3.12.0",
+    "js-yaml": "^3.13.0",
     "lodash.first": "^3.0.0",
     "lodash.last": "^3.0.0",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
     "prettier": "^1.14.2",
-    "rimraf": "^2.6.2",
-    "serverless": "^1.30.1",
+    "rimraf": "^2.6.3",
+    "serverless": "^1.40.0",
     "serverless-pseudo-parameters": "^2.2.0",
     "serverless-step-functions": "1.6.1",
+    "serverless-webpack": "^5.2.0",
     "simple-git": "^1.96.0",
     "test-console": "^1.1.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.1",
+    "webpack": "^4.29.6",
+    "webpack-node-externals": "^1.7.2"
   },
   "engines": {
     "node": ">=6.0.0"
   },
   "dependencies": {
+    "aws-log": "^0.3.0",
     "axios": "^0.18.0",
-    "common-types": "^1.8.18"
+    "common-types": "^1.10.4"
   }
 }
