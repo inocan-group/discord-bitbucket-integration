@@ -2,7 +2,7 @@
 import { IServerlessProvider, IServerlessIAMRole } from "common-types";
 
 const ACCOUNT_ID = "xxxx-xxxx-xxxx";
-const REGION = "us-west-1";
+const REGION = "us-west-2";
 
 const ssmParameters: IServerlessIAMRole = {
   Effect: "Allow",

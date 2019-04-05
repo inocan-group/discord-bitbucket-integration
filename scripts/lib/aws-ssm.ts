@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import { asyncExec } from "async-shelljs";
-import * as yaml from "js-yaml";
+import yaml from "js-yaml";
 import { parseArgv } from "./util";
 import { IServerlessConfig, IDictionary, epoch } from "common-types";
 import { readFileSync } from "fs";
