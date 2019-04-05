@@ -1,5 +1,5 @@
 import { IDictionary } from "common-types";
-import { BitbucketType, IBitbucketPushChanges, IBitbucketComment, IBitbucketIssue, IBitbucketPullRequest, IBitbucketOwner, IBitbucketRepoChanges, IBitbucketRepository } from "./types";
+import { BitbucketType, IBitbucketPushChanges, IBitbucketComment, IBitbucketIssue, IBitbucketPullRequest, IBitbucketOwner, IBitbucketRepoChanges, IBitbucketRepository, IBitbucketApproval } from "./types";
 
 interface IMessageEmbeds {
   title?: string;
@@ -32,9 +32,9 @@ export function createMessage(payload: BitbucketType) {
     case "pullrequest:updated":
       return createEmbedPayload(createPullRequestEmbed(payload.pullrequest, payload.actor));
     case "pullrequest:approved":
-      return createEmbedPayload(createPullRequestEmbed(payload.pullrequest, payload.actor));
+      return createEmbedPayload(createPullRequestApprovedEmbed(payload.pullrequest, payload.actor));
     case "pullrequest:unapproved":
-      return createEmbedPayload(createPullRequestEmbed(payload.pullrequest, payload.actor));
+      return createEmbedPayload(createPullRequestUnApprovedEmbed(payload.pullrequest, payload.actor));
     case "pullrequest:fulfilled":
       return createEmbedPayload(createPullRequestEmbed(payload.pullrequest, payload.actor));
     case "pullrequest:rejected":
@@ -115,6 +115,28 @@ const createPullRequestEmbed = (pullRequestPayload: IBitbucketPullRequest, user:
     name: user.username,
     url: user.links.html.href,
     icon_url: user.links.avatar.href
+  }
+});
+
+const createPullRequestApprovedEmbed = (pullRequestPayload: IBitbucketPullRequest, user: IBitbucketOwner): IMessageEmbeds => ({
+  title: pullRequestPayload.title,
+  description: `${user.nickname} has approved ${pullRequestPayload.source.branch.name}`,
+  url: pullRequestPayload.links.html.href,
+  author: {
+    name: pullRequestPayload.author.username,
+    url: pullRequestPayload.author.links.html.href,
+    icon_url: pullRequestPayload.author.links.avatar.href
+  }
+});
+
+const createPullRequestUnApprovedEmbed = (pullRequestPayload: IBitbucketPullRequest, user: IBitbucketOwner): IMessageEmbeds => ({
+  title: pullRequestPayload.title,
+  description: `${user.nickname} has unapproved ${pullRequestPayload.source.branch.name}`,
+  url: pullRequestPayload.links.html.href,
+  author: {
+    name: pullRequestPayload.author.username,
+    url: pullRequestPayload.author.links.html.href,
+    icon_url: pullRequestPayload.author.links.avatar.href
   }
 });
 

@@ -134,6 +134,12 @@ export interface IBitbucketPullRequest {
   links: ILinks;
 }
 
+
+export interface IBitbucketApproval {
+  date: string;
+  user: IBitbucketOwner
+}
+
 export interface IBitbucketRepository {
   type: string;
   links: ILinks;
@@ -174,7 +180,7 @@ export interface IBitbucketRepositoryBase {
 }
 
 export type BitbucketType =
-  IBitbucketRepositoryPushPay
+  IBitbucketRepositoryPush
   | IBitbucketRepositoryUpdated
   | IBitbucketRepositoryTransfer
   | IBitbucketRepositoryCommitCommentCreated
@@ -234,7 +240,7 @@ export interface IBitbucketComment {
   links: ILinks;
 }
 
-export interface IBitbucketRepositoryPushPay extends IBitbucketRepositoryBase {
+export interface IBitbucketRepositoryPush extends IBitbucketRepositoryBase {
   kind: "repo:push";
   actor: IBitbucketOwner;
   repository: IBitbucketRepository;
@@ -291,10 +297,7 @@ export interface IBitbucketRepositoryPullRequestApproved extends IBitbucketRepos
   actor: IBitbucketOwner;
   pullrequest: IBitbucketPullRequest;
   repository: IBitbucketRepository;
-  approval: {
-    date: string;
-    user: IBitbucketOwner
-  }
+  approval: IBitbucketApproval;
 }
 
 export interface IBitbucketRepositoryPullRequestUnapproved extends IBitbucketRepositoryBase {
