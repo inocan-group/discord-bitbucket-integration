@@ -1,8 +1,8 @@
 // tslint:disable:no-invalid-template-strings
 import { IServerlessProvider, IServerlessIAMRole } from "common-types";
 
-const ACCOUNT_ID = "xxxx-xxxx-xxxx";
-const REGION = "us-west-2";
+const ACCOUNT_ID = process.env.AWS_ACCOUNT_ID || "7419-7656-9717";
+const REGION = process.env.AWS_REGION || "us-west-2";
 
 const ssmParameters: IServerlessIAMRole = {
   Effect: "Allow",

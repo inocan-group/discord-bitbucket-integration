@@ -8,9 +8,18 @@ import {
 } from "common-types";
 import axios from "axios";
 import { logger } from "aws-log";
+import { SSM, ISsmExportsOutput } from "aws-ssm";
 import { createMessage } from "../shared/messages";
 import { BitbucketType } from "../shared/types";
-import { getParameter } from "../shared/secrets";
+
+let _secrets: ISsmExportsOutput;
+const getSecrets = async () => {
+  if (!_secrets) {
+    const ssm = new SSM();
+    _secrets = await ssm.modules(["discord"]);
+  }
+  return _secrets;
+}
 
 interface ISuccessResponse { 
   statusCode: string | number,
@@ -27,10 +36,14 @@ export async function handler(
   const changeEvent = (event.headers as IDictionary)["X-Event-Key"];
 
   const payload = { ...requestBody, ...{ kind: changeEvent } } as BitbucketType;
-  log.info("Payload", payload);
+  log.info("Payload from bitbucket", payload);
 
-  const discordWebhookUrl = (await getParameter(requestBody.repository.name)).Value;
-  log.info("Discord webhook url", { discordWebhookUrl });
+  const secrets = (await getSecrets()).discord;
+  if (secrets[requestBody.repository.name] === undefined) {
+    throw new Error("The secret you are looking for doesn't exist.");
+  }
+  const discordWebhookUrl = secrets[requestBody.repository.name];
+  log.debug("Discord webhook url", { discordWebhookUrl });
 
   const message = createMessage(payload);
   log.info("Payload being sent to Discord", message);
@@ -48,9 +61,7 @@ export async function handler(
 
     callback(null, {
       statusCode: ApiGatewayStatusCode.Success,
-      body: {
-        foo: "bar"
-      }
+      body: { success: true }
     });
   } catch (e) {
     log.error("There was an issue sending the message to Discord: ", {
