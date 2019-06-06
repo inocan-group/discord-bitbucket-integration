@@ -1,10 +1,10 @@
 // tslint:disable:no-implicit-dependencies
 import chalk from "chalk";
 import { exec, asyncExec, ls } from "async-shelljs";
-import * as rm from "rimraf";
-import * as fs from "fs";
-import * as yaml from "js-yaml";
-import * as inquirer from "inquirer";
+import rm from "rimraf";
+import fs from "fs";
+import yaml from "js-yaml";
+import inquirer from "inquirer";
 import { IDictionary } from "common-types";
 
 async function build(fns?: string[]) {

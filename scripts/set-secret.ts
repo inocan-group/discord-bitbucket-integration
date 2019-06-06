@@ -1,7 +1,7 @@
 // tslint:disable:no-implicit-dependencies
 import chalk from "chalk";
 import { asyncExec } from "async-shelljs";
-import * as yaml from "js-yaml";
+import yaml from "js-yaml";
 import { parseArgv } from "./lib/util";
 import { IServerlessConfig } from "common-types";
 import { readFileSync } from "fs";

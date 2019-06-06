@@ -1,0 +1,359 @@
+{
+  "pullrequest": {
+    "rendered": {
+      "description": {
+        "raw": "* adds SignIn component adds SignUp component adds routes for signIn and signUp adds firebase auth",
+        "markup": "markdown",
+        "html": "<ul>\n<li>adds SignIn component adds SignUp component adds routes for signIn and signUp adds firebase auth</li>\n</ul>",
+        "type": "rendered"
+      },
+      "title": {
+        "raw": "Feature/sign in sign up email verification",
+        "markup": "markdown",
+        "html": "<p>Feature/sign in sign up email verification</p>",
+        "type": "rendered"
+      }
+    },
+    "type": "pullrequest",
+    "description": "* adds SignIn component adds SignUp component adds routes for signIn and signUp adds firebase auth",
+    "links": {
+      "decline": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/decline"
+      },
+      "commits": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/commits"
+      },
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9"
+      },
+      "comments": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/comments"
+      },
+      "merge": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/merge"
+      },
+      "html": {
+        "href": "https://bitbucket.orginocan/discord-bitbucket-integration/pull-requests/9"
+      },
+      "activity": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/activity"
+      },
+      "diff": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/diff"
+      },
+      "approve": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/approve"
+      },
+      "statuses": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/pullrequests/9/statuses"
+      }
+    },
+    "title": "Feature/sign in sign up email verification",
+    "close_source_branch": true,
+    "reviewers": [
+      {
+        "username": "NickMessing",
+        "display_name": "NickMessing NA",
+        "account_id": "557058:0d24c667-a6d3-4bc9-ad44-39c1dfdb9c3d",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/users/NickMessing"
+          },
+          "html": {
+            "href": "https://bitbucket.org/NickMessing/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/NickMessing/avatar/"
+          }
+        },
+        "nickname": "NickMessing",
+        "type": "user",
+        "uuid": "{6f38fbce-12a6-4713-8e8a-e351e11204b0}"
+      },
+      {
+        "username": "edvardas_damusis",
+        "display_name": "edvardas_damusis",
+        "account_id": "557058:91716b91-40e5-41ef-b0f9-1375286f941c",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/users/edvardas_damusis"
+          },
+          "html": {
+            "href": "https://bitbucket.org/edvardas_damusis/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/edvardas_damusis/avatar/"
+          }
+        },
+        "nickname": "edvardas_damusis",
+        "type": "user",
+        "uuid": "{4cc4bd12-ea00-4468-8425-35bd569ab56c}"
+      },
+      {
+        "username": "inocan-group",
+        "display_name": "Ken Snyder",
+        "account_id": "5b7c672fc5e21441d0929e79",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/users/inocan-group"
+          },
+          "html": {
+            "href": "https://bitbucket.org/inocan-group/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/inocan-group/avatar/"
+          }
+        },
+        "nickname": "inocan-group",
+        "type": "user",
+        "uuid": "{8d2d345d-8abd-4c5e-b8ed-e9386fdee9f6}"
+      },
+      {
+        "username": "andrew-inocan",
+        "display_name": "Andrew Smith",
+        "account_id": "5bcb887ddd3cc64b77e70226",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/users/andrew-inocan"
+          },
+          "html": {
+            "href": "https://bitbucket.org/andrew-inocan/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/andrew-inocan/avatar/"
+          }
+        },
+        "nickname": "andrew-inocan",
+        "type": "user",
+        "uuid": "{3d73998a-ad20-4797-a4ec-7dad94958f26}"
+      }
+    ],
+    "id": 9,
+    "destination": {
+      "commit": {
+        "hash": "734ada4303d1",
+        "type": "commit",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/commit/734ada4303d1"
+          },
+          "html": {
+            "href": "https://bitbucket.orginocan/discord-bitbucket-integration/commits/734ada4303d1"
+          }
+        }
+      },
+      "repository": {
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration"
+          },
+          "html": {
+            "href": "https://bitbucket.orginocan/discord-bitbucket-integration"
+          },
+          "avatar": {
+            "href": "https://bytebucket.org/ravatar/%7Bd5492985-939e-43a7-ac42-cd99d49eba94%7D?ts=1949596"
+          }
+        },
+        "type": "repository",
+        "name": "discord-bitbucket-integration",
+        "full_name": "inocan/discord-bitbucket-integration",
+        "uuid": "{d5492985-939e-43a7-ac42-cd99d49eba94}"
+      },
+      "branch": {
+        "name": "develop"
+      }
+    },
+    "created_on": "2019-02-19T17:32:59.780889+00:00",
+    "summary": {
+      "raw": "* adds SignIn component adds SignUp component adds routes for signIn and signUp adds firebase auth",
+      "markup": "markdown",
+      "html": "<ul>\n<li>adds SignIn component adds SignUp component adds routes for signIn and signUp adds firebase auth</li>\n</ul>",
+      "type": "rendered"
+    },
+    "source": {
+      "commit": {
+        "hash": "678ef502c03b",
+        "type": "commit",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/commit/678ef502c03b"
+          },
+          "html": {
+            "href": "https://bitbucket.orginocan/discord-bitbucket-integration/commits/678ef502c03b"
+          }
+        }
+      },
+      "repository": {
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration"
+          },
+          "html": {
+            "href": "https://bitbucket.orginocan/discord-bitbucket-integration"
+          },
+          "avatar": {
+            "href": "https://bytebucket.org/ravatar/%7Bd5492985-939e-43a7-ac42-cd99d49eba94%7D?ts=1949596"
+          }
+        },
+        "type": "repository",
+        "name": "discord-bitbucket-integration",
+        "full_name": "inocan/discord-bitbucket-integration",
+        "uuid": "{d5492985-939e-43a7-ac42-cd99d49eba94}"
+      },
+      "branch": {
+        "name": "feature/sign-in-sign-up-email-verification"
+      }
+    },
+    "comment_count": 6,
+    "state": "OPEN",
+    "task_count": 0,
+    "participants": [
+      {
+        "role": "REVIEWER",
+        "participated_on": "2019-02-21T13:10:01.761454+00:00",
+        "type": "participant",
+        "approved": true,
+        "user": {
+          "username": "andrew-inocan",
+          "display_name": "Andrew Smith",
+          "account_id": "5bcb887ddd3cc64b77e70226",
+          "links": {
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/users/andrew-inocan"
+            },
+            "html": {
+              "href": "https://bitbucket.org/andrew-inocan/"
+            },
+            "avatar": {
+              "href": "https://bitbucket.org/account/andrew-inocan/avatar/"
+            }
+          },
+          "nickname": "andrew-inocan",
+          "type": "user",
+          "uuid": "{3d73998a-ad20-4797-a4ec-7dad94958f26}"
+        }
+      },
+      {
+        "role": "REVIEWER",
+        "participated_on": "2019-02-20T18:47:59.648357+00:00",
+        "type": "participant",
+        "approved": false,
+        "user": {
+          "username": "inocan-group",
+          "display_name": "Ken Snyder",
+          "account_id": "5b7c672fc5e21441d0929e79",
+          "links": {
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/users/inocan-group"
+            },
+            "html": {
+              "href": "https://bitbucket.org/inocan-group/"
+            },
+            "avatar": {
+              "href": "https://bitbucket.org/account/inocan-group/avatar/"
+            }
+          },
+          "nickname": "inocan-group",
+          "type": "user",
+          "uuid": "{8d2d345d-8abd-4c5e-b8ed-e9386fdee9f6}"
+        }
+      }
+    ],
+    "reason": "",
+    "updated_on": "2019-02-21T13:35:27.646581+00:00",
+    "author": {
+      "username": "inocan-group",
+      "display_name": "Ken Snyder",
+      "account_id": "5b7c672fc5e21441d0929e79",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/inocan-group"
+        },
+        "html": {
+          "href": "https://bitbucket.org/inocan-group/"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/inocan-group/avatar/"
+        }
+      },
+      "nickname": "inocan-group",
+      "type": "user",
+      "uuid": "{8d2d345d-8abd-4c5e-b8ed-e9386fdee9f6}"
+    },
+    "merge_commit": null,
+    "closed_by": null
+  },
+  "repository": {
+    "scm": "git",
+    "website": "",
+    "name": "discord-bitbucket-integration",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration"
+      },
+      "html": {
+        "href": "https://bitbucket.orginocan/discord-bitbucket-integration"
+      },
+      "avatar": {
+        "href": "https://bytebucket.org/ravatar/%7Bd5492985-939e-43a7-ac42-cd99d49eba94%7D?ts=1949596"
+      }
+    },
+    "project": {
+      "key": "MOVE",
+      "type": "project",
+      "uuid": "{88996042-51a8-4074-9724-2239efb1a3ab}",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/inocan/projects/MOVE"
+        },
+        "html": {
+          "href": "https://bitbucket.org/account/user/inocan/projects/MOVE"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/inocan/projects/MOVE/avatar/32"
+        }
+      },
+      "name": "Move"
+    },
+    "full_name": "inocan/discord-bitbucket-integration",
+    "owner": {
+      "username": "inocan",
+      "display_name": "inocan-group",
+      "type": "team",
+      "uuid": "{6f5273cb-c929-47d8-a5a5-6b65066b5f67}",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/inocan"
+        },
+        "html": {
+          "href": "https://bitbucket.org/inocan/"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/inocan/avatar/"
+        }
+      }
+    },
+    "type": "repository",
+    "is_private": true,
+    "uuid": "{d5492985-939e-43a7-ac42-cd99d49eba94}"
+  },
+  "actor": {
+    "username": "inocan-group",
+    "display_name": "Ken Snyder",
+    "account_id": "5b7c672fc5e21441d0929e79",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/users/inocan-group"
+      },
+      "html": {
+        "href": "https://bitbucket.org/inocan-group/"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/account/inocan-group/avatar/"
+      }
+    },
+    "nickname": "inocan-group",
+    "type": "user",
+    "uuid": "{8d2d345d-8abd-4c5e-b8ed-e9386fdee9f6}"
+  }
+}

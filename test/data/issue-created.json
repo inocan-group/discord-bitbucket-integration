@@ -9,22 +9,22 @@
     "kind": "bug",
     "links": {
       "attachments": {
-        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/2/attachments"
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/issues/2/attachments"
       },
       "self": {
-        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/2"
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/issues/2"
       },
       "watch": {
-        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/2/watch"
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/issues/2/watch"
       },
       "comments": {
-        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/2/comments"
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/issues/2/comments"
       },
       "html": {
-        "href": "https://bitbucket.org/inocan_move/move-admin/issues/2/hells-freezing-over"
+        "href": "https://bitbucket.org/inocan/discord-bitbucket-integration/issues/2/hells-freezing-over"
       },
       "vote": {
-        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin/issues/2/vote"
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration/issues/2/vote"
       }
     },
     "reporter": {
@@ -101,10 +101,10 @@
     "name": "move-admin",
     "links": {
       "self": {
-        "href": "https://api.bitbucket.org/2.0/repositories/inocan_move/move-admin"
+        "href": "https://api.bitbucket.org/2.0/repositories/inocan/discord-bitbucket-integration"
       },
       "html": {
-        "href": "https://bitbucket.org/inocan_move/move-admin"
+        "href": "https://bitbucket.org/inocan/discord-bitbucket-integration"
       },
       "avatar": {
         "href": "https://bytebucket.org/ravatar/%7Bc816fbc6-c6aa-4b4a-ad1f-d859d5812272%7D?ts=1949617"
@@ -127,7 +127,7 @@
       "key": "MOVE",
       "name": "Move"
     },
-    "full_name": "inocan_move/move-admin",
+    "full_name": "inocan/discord-bitbucket-integration",
     "owner": {
       "username": "inocan_move",
       "type": "team",

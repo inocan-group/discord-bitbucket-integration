@@ -2,9 +2,17 @@ service: discord-webhook
 custom:
   stage: '${opt:stage, self:provider.stage}'
   region: '${opt:region, self:provider.region}'
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules:
+      forceExclude:
+        - aws-sdk
+        - js-yaml
+    packager: npm
 plugins:
   - serverless-pseudo-parameters
   - serverless-step-functions
+  - serverless-webpack
 functions:
   listen:
     description: listens for BitBucket events
@@ -21,7 +29,7 @@ provider:
   name: aws
   runtime: nodejs8.10
   stage: prod
-  region: us-west-1
+  region: us-west-2
   environment: '${file(serverless-config/env.yml):${self:custom.stage}}'
   iamRoleStatements:
     - Effect: Allow
@@ -35,7 +43,7 @@ provider:
         - 'ssm:GetParameter'
         - 'ssm:GetParametersByPath'
       Resource:
-        - 'arn:aws:ssm:us-west-1*'
+        - 'arn:aws:ssm:us-west-2*'
     - Effect: Allow
       Action:
         - 'states:ListStateMachines'
@@ -46,5 +54,7 @@ provider:
         - 'states:DescribeStateMachineForExecution'
         - 'states:GetExecutionHistory'
       Resource:
-        - 'arn:aws:states:us-west-1:xxxx-xxxx-xxxx:stateMachine:*'
-        - 'arn:aws:states:us-west-1:xxxx-xxxx-xxxx:execution:*:*'
+        - 'arn:aws:states:us-west-2:7419-7656-9717:stateMachine:*'
+        - 'arn:aws:states:us-west-2:7419-7656-9717:execution:*:*'
+package:
+  individually: true
