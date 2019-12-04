@@ -1,16 +1,15 @@
 import {
-  IAwsLambdaCallback,
   IAWSLambdaProxyIntegrationRequest,
   getBodyFromPossibleLambdaProxyRequest,
-  ApiGatewayStatusCode,
   IAWSLambaContext,
   IDictionary
 } from "common-types";
 import axios from "axios";
 import { logger } from "aws-log";
-import { SSM, ISsmExportsOutput } from "aws-ssm";
+import { SSM, ISsmExportsOutput, parseForNameComponents } from "aws-ssm";
 import { createMessage } from "../shared/messages";
 import { BitbucketType } from "../shared/types";
+import { log } from "util";
 
 let _secrets: ISsmExportsOutput;
 const getSecrets = async () => {
@@ -19,17 +18,16 @@ const getSecrets = async () => {
     _secrets = await ssm.modules(["discord"]);
   }
   return _secrets;
-}
+};
 
-interface ISuccessResponse { 
-  statusCode: string | number,
-  body?: IDictionary
+interface ISuccessResponse {
+  statusCode: string | number;
+  body?: string;
 }
 
 export async function handler(
   event: IAWSLambdaProxyIntegrationRequest,
-  context: IAWSLambaContext,
-  callback: IAwsLambdaCallback<ISuccessResponse>
+  context: IAWSLambaContext
 ) {
   const log = logger().lambda(event, context);
   const requestBody = getBodyFromPossibleLambdaProxyRequest<IDictionary>(event);
@@ -40,7 +38,9 @@ export async function handler(
 
   const secrets = (await getSecrets()).discord;
   if (secrets[requestBody.repository.name] === undefined) {
-    throw new Error("The secret you are looking for doesn't exist.");
+    throw new Error(
+      `The secret you are looking for doesn't exist. [${requestBody.repository.name}]`
+    );
   }
   const discordWebhookUrl = secrets[requestBody.repository.name];
   log.debug("Discord webhook url", { discordWebhookUrl });
@@ -59,17 +59,16 @@ export async function handler(
       data: message
     });
 
-    callback(null, {
-      statusCode: ApiGatewayStatusCode.Success,
-      body: { success: true }
-    });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ success: true })
+    } as ISuccessResponse;
   } catch (e) {
     log.error("There was an issue sending the message to Discord: ", {
       e,
       discordWebhookUrl,
       message
     });
-    callback(e);
-    process.exit();
+    return e;
   }
 }
