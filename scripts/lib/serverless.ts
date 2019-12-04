@@ -4,6 +4,7 @@ import chalk from "chalk";
 import fs from "fs";
 import yaml from "js-yaml";
 import path from "path";
+import { Dictionary } from "lodash";
 
 export interface IServerlessCliOptions {
   required?: boolean;
@@ -78,7 +79,7 @@ export async function serverless(
         configSection = serverlessConfig[where] as IDictionary;
       }
     }
-    serverlessConfig[where] = configSection;
+    (serverlessConfig[where] as IDictionary) = configSection;
     fs.writeFileSync("serverless.yml", yaml.dump(serverlessConfig));
 
     console.log(
